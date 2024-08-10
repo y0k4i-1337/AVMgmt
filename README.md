@@ -6,13 +6,13 @@ Collection of functions to manage common Antivirus services
 ### Adding exclusions to Windows Defender
 
 ```powershell
-Defender-AddExclusion -Paths "C:\inetpub\wwwroot", "C:\Windows\System32", "C:\Windows\Tasks"
+Defender-AddExclusion -Path "C:\Windows\System32"
 ```
 
 ### Removing exclusions from Windows Defender
 
 ```powershell
-Defender-RemoveExclusion -Paths "C:\Windows\System32"
+Defender-RemoveExclusion -Path "C:\Windows\System32"
 ```
 
 ### Killing Windows Defender (remove definitions and stop service)
@@ -30,12 +30,12 @@ Defender-ListExclusions
 ### Adding exclusions (dummy for non-CLI solutions)
 
 ```powershell
-Norton-AddExclusion -Paths "C:\example\path"
-McAfee-AddExclusion -Paths "C:\example\path"
-Bitdefender-AddExclusion -Paths "C:\example\path"
-Kaspersky-AddExclusion -Paths "C:\example\path"
-Sophos-AddExclusion -Paths "C:\example\path"
-TrendMicro-AddExclusion -Paths "C:\example\path"
+Norton-AddExclusion -Path "C:\example\path"
+McAfee-AddExclusion -Path "C:\example\path"
+Bitdefender-AddExclusion -Path "C:\example\path"
+Kaspersky-AddExclusion -Path "C:\example\path"
+Sophos-AddExclusion -Path "C:\example\path"
+TrendMicro-AddExclusion -Path "C:\example\path"
 ```
 
 ### Stopping services
