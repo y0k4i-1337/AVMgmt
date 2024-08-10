@@ -18,49 +18,41 @@ function Defender-ListExclusions {
     }
 }
 
-# Function to add one or more exclusion paths to Windows Defender
+# Function to add a single exclusion path to Windows Defender
 function Defender-AddExclusion {
     param (
-        [string[]]$Paths
+        [string]$Path
     )
 
-    # Error handling for adding exclusions
+    # Error handling for adding an exclusion
     try {
-        Write-Output "[+] Adding exclusions to Windows Defender..."
-
-        foreach ($path in $Paths) {
-            if (Test-Path $path) {
-                Write-Output "[+] Adding exclusion: $path"
-                Add-MpPreference -ExclusionPath $path -ErrorAction Stop
-            } else {
-                Write-Output "[!] Path not found: $path"
-            }
+        if (Test-Path $Path) {
+            Write-Output "[+] Adding exclusion: $Path"
+            Add-MpPreference -ExclusionPath $Path -ErrorAction Stop
+        } else {
+            Write-Output "[!] Path not found: $Path"
         }
     } catch {
-        Write-Output "[!] Failed to add exclusions: $_"
+        Write-Output "[!] Failed to add exclusion: $_"
     }
 }
 
-# Function to remove one or more exclusion paths from Windows Defender
+# Function to remove a single exclusion path from Windows Defender
 function Defender-RemoveExclusion {
     param (
-        [string[]]$Paths
+        [string]$Path
     )
 
-    # Error handling for removing exclusions
+    # Error handling for removing an exclusion
     try {
-        Write-Output "[+] Removing exclusions from Windows Defender..."
-
-        foreach ($path in $Paths) {
-            if (Test-Path $path) {
-                Write-Output "[+] Removing exclusion: $path"
-                Remove-MpPreference -ExclusionPath $path -ErrorAction Stop
-            } else {
-                Write-Output "[!] Path not found: $path"
-            }
+        if (Test-Path $Path) {
+            Write-Output "[+] Removing exclusion: $Path"
+            Remove-MpPreference -ExclusionPath $Path -ErrorAction Stop
+        } else {
+            Write-Output "[!] Path not found: $Path"
         }
     } catch {
-        Write-Output "[!] Failed to remove exclusions: $_"
+        Write-Output "[!] Failed to remove exclusion: $_"
     }
 }
 
@@ -115,13 +107,13 @@ function Defender-Kill {
     }
 }
 
-# Function to add exclusions to Norton Antivirus (requires GUI or command-line tool)
+# Function to add a single exclusion path to Norton Antivirus (requires GUI or command-line tool)
 function Norton-AddExclusion {
     param (
-        [string[]]$Paths
+        [string]$Path
     )
 
-    Write-Output "[!] Adding exclusions to Norton Antivirus is generally managed through the GUI."
+    Write-Output "[!] Adding exclusion to Norton Antivirus is generally managed through the GUI."
     Write-Output "[!] Use Norton Security interface or command-line tool if available."
 }
 
@@ -137,13 +129,13 @@ function Norton-Kill {
     }
 }
 
-# Function to add exclusions to McAfee Antivirus
+# Function to add a single exclusion path to McAfee Antivirus
 function McAfee-AddExclusion {
     param (
-        [string[]]$Paths
+        [string]$Path
     )
 
-    Write-Output "[!] Adding exclusions to McAfee Antivirus is generally managed through the GUI."
+    Write-Output "[!] Adding exclusion to McAfee Antivirus is generally managed through the GUI."
     Write-Output "[!] Use McAfee's GUI or command-line tool if available."
 }
 
@@ -159,13 +151,13 @@ function McAfee-Kill {
     }
 }
 
-# Function to add exclusions to Bitdefender
+# Function to add a single exclusion path to Bitdefender
 function Bitdefender-AddExclusion {
     param (
-        [string[]]$Paths
+        [string]$Path
     )
 
-    Write-Output "[!] Adding exclusions to Bitdefender is generally managed through the GUI."
+    Write-Output "[!] Adding exclusion to Bitdefender is generally managed through the GUI."
     Write-Output "[!] Use Bitdefender interface for managing exclusions."
 }
 
@@ -181,13 +173,13 @@ function Bitdefender-Kill {
     }
 }
 
-# Function to add exclusions to Kaspersky
+# Function to add a single exclusion path to Kaspersky
 function Kaspersky-AddExclusion {
     param (
-        [string[]]$Paths
+        [string]$Path
     )
 
-    Write-Output "[!] Adding exclusions to Kaspersky is generally managed through the GUI."
+    Write-Output "[!] Adding exclusion to Kaspersky is generally managed through the GUI."
     Write-Output "[!] Use Kaspersky interface for managing exclusions."
 }
 
@@ -203,13 +195,13 @@ function Kaspersky-Kill {
     }
 }
 
-# Function to add exclusions to Sophos
+# Function to add a single exclusion path to Sophos
 function Sophos-AddExclusion {
     param (
-        [string[]]$Paths
+        [string]$Path
     )
 
-    Write-Output "[!] Adding exclusions to Sophos is generally managed through the GUI."
+    Write-Output "[!] Adding exclusion to Sophos is generally managed through the GUI."
     Write-Output "[!] Use Sophos Central or GUI for managing exclusions."
 }
 
@@ -225,13 +217,13 @@ function Sophos-Kill {
     }
 }
 
-# Function to add exclusions to Trend Micro
+# Function to add a single exclusion path to Trend Micro
 function TrendMicro-AddExclusion {
     param (
-        [string[]]$Paths
+        [string]$Path
     )
 
-    Write-Output "[!] Adding exclusions to Trend Micro is generally managed through the GUI."
+    Write-Output "[!] Adding exclusion to Trend Micro is generally managed through the GUI."
     Write-Output "[!] Use Trend Micro interface for managing exclusions."
 }
 
